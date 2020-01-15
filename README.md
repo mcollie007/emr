@@ -18,6 +18,7 @@ rake db:migrate
 rake db:seed
 
 * How to run the test suite:
+* rails db:environment:set RAILS_ENV=test
 * rake db:migrate RAILS_ENV=test
 * rspec spec
 

@@ -8,10 +8,8 @@ RSpec.describe Admission, type: :model do
   end
 
   it { should have_many :diagnoses }
-
   it { should have_many :symptoms }
-
-  it { should have_many :observations}
+  it { should have_many :observations }
 
   describe "#admission" do
     let(:patient) { create(:patient, gender: 1) }

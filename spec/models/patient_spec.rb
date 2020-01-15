@@ -26,7 +26,13 @@ RSpec.describe Patient, type: :model do
   end
 
   describe "#patient" do
+    context "#full_name" do
+      it "returns patient full_name" do
+        patient_temp_full_name = "#{patient.last_name}, #{patient.first_name} #{patient.middle_name.first}."
 
+        expect(patient.full_name).to eq(patient_temp_full_name)
+      end
+    end
     context "#diagnoses_description" do
       context "diagnoses is empty" do
         it "returns an empty string" do
@@ -116,7 +122,7 @@ RSpec.describe Patient, type: :model do
 
       context "diagnostic_procedures is not empty" do
         let(:time_moment) { Time.zone.now }
-        
+
         before do
           Timecop.freeze(time_moment)
           3.times do
