@@ -14,12 +14,12 @@ Things you may want to cover:
 * Database creation:
 rake db:migrate
 
-* Database initialization
+* Database initialization:
 rake db:seed
 
 * How to run the test suite:
-rake db:migrate RAILS_ENV=test
-rspec spec
+* rake db:migrate RAILS_ENV=test
+* rspec spec
 
 * Services (job queues, cache servers, search engines, etc.)
 
