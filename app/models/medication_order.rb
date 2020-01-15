@@ -4,4 +4,8 @@ class MedicationOrder < ApplicationRecord
 
   belongs_to :patient
   has_one :order_frequency
+
+  validates :name, presence: true
+  validates :dosage, presence: true
+  validates :necessity, presence: true
 end

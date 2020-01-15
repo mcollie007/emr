@@ -18,10 +18,12 @@
       <% @patients.each do |patient| %>
         <tr>
           <td><%= patient.full_name %></td>
-          <td><%= link_to 'Emergency Transfer', summary_emergency_transfer_path(patient_id: patient.id, facility_id: @facility.id) %></td>
+          <td><%= link_to 'Emergency Transfer', summary_emergency_transfer_path(patient_id: patient.id, facility_id: @facility.id) %> |
+          <%= link_to 'Emergency Transfer Download', summary_emergency_transfer_path(patient_id: patient.id, facility_id: @facility.id, format: :pdf) %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
   <br>
+  <%= link_to 'Back', '/' %>
 </div>

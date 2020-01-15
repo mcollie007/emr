@@ -9,6 +9,12 @@ class Patient < ApplicationRecord
   has_many :treatments
   has_many :chronic_conditions, class_name: "Diagnosis", foreign_key: "chronic_condition_id"
 
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :middle_name, presence: true
+  validates :dob, presence: true
+  validates :mr, presence: true
+
   def full_name
     "#{last_name}, #{first_name} #{middle_name.first}."
   end

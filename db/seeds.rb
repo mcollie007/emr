@@ -44,23 +44,23 @@ end
       admission.tap do |a|
         a.diagnoses.create(coding_system: "ICD-10",
                            code: "#{Faker::Lorem.word[0...3]}#{Random.rand(999)}",
-                           description: Faker::Company.bs)
-        a.symptoms.create(description: Faker::Lorem.word)
+                           description: Faker::Lorem.word)
+        a.symptoms.create(description: ["nausea", "vomiting", "sweating"].sample)
         a.observations.create(description: Faker::Lorem.word)
       end
     end
 
     2.times do
       patient.tap do |p|
-        p.allergies.create(description: Faker::Lorem.word)
-        p.diagnostic_procedures.create(description: Faker::Company.bs, moment: moment)
-        p.treatments.create(description: Faker::Company.bs, necessity: Faker::Company.bs)
+        p.allergies.create(description: ["peanuts", "shellfish", "cats", "dogs", "flowers"].sample)
+        p.diagnostic_procedures.create(description: ["Lab test of blood", "MRI", "CT Scan", "Ultrasound", "Xray"].sample, moment: moment)
+        p.treatments.create(description: ["bed rest", "elevation", "medicated", "restricted movement"].sample, necessity: "to relieve pain")
         p.diagnoses.create(coding_system: "ICD-10",
                            code: "#{Faker::Lorem.word[0...3]}#{Random.rand(999)}",
-                           description: Faker::Company.bs)
+                           description: Faker::Lorem.word)
         p.chronic_conditions.create(coding_system: "ICD-10",
                                     code: "#{Faker::Lorem.word[0...3]}#{Random.rand(999)}",
-                                    description: Faker::Company.bs)
+                                    description: Faker::Lorem.word)
         medication = p.medications.create(name: Faker::Lorem.word, dosage: Random.rand(9),
                                            necessity: Faker::Lorem.word, mass_unit: 0,
                                            medication_route: [0,1,2].sample)
