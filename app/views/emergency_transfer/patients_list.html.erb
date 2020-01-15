@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Facility: </strong><%= @facility.name %>
+</p>
+
+<div class="patients-list">
+  <h3 class="page-header">Patients</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Full Name</th>
+        <th colspan="3">Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @patients.each do |patient| %>
+        <tr>
+          <td><%= patient.full_name %></td>
+          <td><%= link_to 'Emergency_Transfer', summary_emergency_transfer_path(patient_id: patient.id, facility_id: @facility.id) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+</div>
